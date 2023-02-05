@@ -9,6 +9,9 @@
 }
 */
 
+
+import { type } from "os";
+
 function flameLeaning() {
     const string: String ="Hello Typescript";
     console.log(string);
@@ -33,9 +36,65 @@ function flameLeaning() {
         country: 'japan'
     };
 
-    Stringlist.secoundLanguage = 'English';
+    Stringlist.secoundLanguage = 'English'; //オプショナル?には後から追加可能
     console.log(Stringlist.secoundLanguage);
 }
 
 flameLeaning();
 
+
+
+//型エイリアスについて
+//型型に名前をつけて宣言するkとができる。再利用可。「オブジェクトの型」的な使い方ガできる。
+type country = {
+    capiral: string
+    language: string
+    name: string
+    population: Number
+};
+
+const japan: country = {
+    capiral: 'Tokyo',
+    language: 'japanease',
+    name: 'japan',
+    population: 100000000,
+};
+console.log(japan.name);
+
+//合併型と交差型の勉強
+type Knight = {
+    hp: number
+    sp: number
+    weapon: string
+    swordSkill: string
+}
+
+type Wiherd = {
+    hp: number
+    mp: number
+    weapon: string
+    magicSkill: string
+}
+                    //↓ナイトとウィザードのどちらかのTypeを持つ
+type Adventure = Knight | Wiherd
+
+                    //↓ナイトとウィザードの両方の方を持つ
+type Paradin = Knight & Wiherd
+
+//ナイトよりの人
+const Adventure1: Adventure = {
+    hp: 100,
+    sp: 30,
+    weapon: 'ひのきのぼう',
+    swordSkill: 'にだんぎり'
+};
+
+const Adventure2: Adventure = {
+    hp: 80,
+    mp: 60,
+    weapon: 'ひのきのつえ',
+    magicSkill: 'ファイアボール'
+};
+
+console.log(Adventure1);
+console.log(Adventure2);
