@@ -98,3 +98,14 @@ const Adventure2: Adventure = {
 
 console.log(Adventure1);
 console.log(Adventure2);
+
+let x: String = "goodmorning";
+console.log(x.substring(2, 8));
+
+
+function testing() {
+    const count: number = 123;
+    console.log(count);
+}
+
+testing();
