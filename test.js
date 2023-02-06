@@ -50,3 +50,42 @@ var Adventure2 = {
 console.log(Adventure1);
 console.log(Adventure2);
 
+function increment(n) {
+    while (n <= 3) {
+        console.log(n);
+        n += 1
+    };
+}
+increment(1);
+
+
+/*非同期処理のpromise処理
+const sample = new Promise((resolve, reject) => {
+    setTimeout(function() {
+        resolve();
+    }, 1000);
+});
+
+sample.then(function(value) {
+    console.log("Promise成功");
+});
+
+console.log("先に出力");
+*/
+
+
+//残余引数
+function func(...params) {
+    console.log(params);
+}
+func(1, 2, 3, 4, 5);
+
+//オブジェクト
+const product = {
+    name: "ミネラルウォーター",
+    price: 100,
+    getTaxIncludePrice: function () {
+        return Math.floor(this.price * 1.1);
+    },
+    consumeLimit: new Date("2023-02-10"),
+};

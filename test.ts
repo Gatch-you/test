@@ -11,6 +11,8 @@
 
 
 import { type } from "os";
+import { mainModule } from "process";
+import { isFunctionLike } from "typescript";
 
 function flameLeaning() {
     const string: String ="Hello Typescript";
@@ -109,3 +111,39 @@ function testing() {
 }
 
 testing();
+
+function getIfExist(numbers: number[], search: number): number | undefined {
+    if (numbers.includes(search)) {
+        console.log(`${search}は配列内に存在します。`);
+        return search;
+    }
+    return undefined;
+}
+getIfExist([1,2,3,4,], 8);
+/*
+function hello(person: string) {
+    console.log(`${person}さん こんにちは`);
+}
+hello("羽賀");
+
+
+function hello(person?: string) {
+    if (typeof person === "undefined") {
+      person = "anonymous";
+      console.log(person);
+    } else {
+    return "Hello " + person.toUpperCase();
+    }
+  }
+  hello();
+
+*/
+function hello(person?: string) {}
+hello(); // 引数を省略して呼び出せる
+
+
+//残余引数
+function func(...params: number[]) {
+    console.log(...params);
+  }
+func(1, 2, 3, 4);
